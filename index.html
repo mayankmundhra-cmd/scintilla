@@ -564,19 +564,25 @@
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label for="cf-country">Preferred Destination</label>
-              <select id="cf-country" name="country">
-                <option value="">Select a country…</option>
-                <option>USA</option>
-                <option>UK</option>
-                <option>Canada</option>
-                <option>Germany</option>
-                <option>Australia</option>
-                <option>New Zealand</option>
-                <option>Ireland</option>
-                <option>Middle East</option>
-                <option>Not Sure Yet</option>
-              </select>
+              <label>Preferred Destination</label>
+              <div class="multiselect" id="cfCountryMultiselect">
+                <div class="multiselect-trigger" id="cfCountryTrigger" tabindex="0" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="cfCountryDropdown">
+                  <span class="multiselect-placeholder" id="cfCountryPlaceholder">Select countries…</span>
+                  <span class="multiselect-tags" id="cfCountryTags"></span>
+                  <span class="multiselect-arrow" aria-hidden="true"></span>
+                </div>
+                <div class="multiselect-dropdown" id="cfCountryDropdown" role="listbox" aria-multiselectable="true">
+                  <label class="multiselect-option"><input type="checkbox" value="USA" /><span>USA</span></label>
+                  <label class="multiselect-option"><input type="checkbox" value="UK" /><span>UK</span></label>
+                  <label class="multiselect-option"><input type="checkbox" value="Canada" /><span>Canada</span></label>
+                  <label class="multiselect-option"><input type="checkbox" value="Germany" /><span>Germany</span></label>
+                  <label class="multiselect-option"><input type="checkbox" value="Australia" /><span>Australia</span></label>
+                  <label class="multiselect-option"><input type="checkbox" value="New Zealand" /><span>New Zealand</span></label>
+                  <label class="multiselect-option"><input type="checkbox" value="Ireland" /><span>Ireland</span></label>
+                  <label class="multiselect-option"><input type="checkbox" value="Middle East" /><span>Middle East</span></label>
+                  <label class="multiselect-option"><input type="checkbox" value="Not Sure Yet" /><span>Not Sure Yet</span></label>
+                </div>
+              </div>
             </div>
             <div class="form-group">
               <label for="cf-course">Course Level</label>
@@ -755,12 +761,91 @@
       if (midCta) observer.observe(midCta);
     })();
 
+    // ---- Multi-select dropdown (Preferred Destination) ----
+    (function () {
+      var wrapper = document.getElementById('cfCountryMultiselect');
+      var trigger = document.getElementById('cfCountryTrigger');
+      var dropdown = document.getElementById('cfCountryDropdown');
+      var placeholder = document.getElementById('cfCountryPlaceholder');
+      var tagsContainer = document.getElementById('cfCountryTags');
+      if (!wrapper || !trigger || !dropdown) return;
+
+      var checkboxes = dropdown.querySelectorAll('input[type="checkbox"]');
+
+      function getSelected() {
+        var vals = [];
+        checkboxes.forEach(function (cb) { if (cb.checked) vals.push(cb.value); });
+        return vals;
+      }
+
+      function renderTags() {
+        var selected = getSelected();
+        tagsContainer.innerHTML = '';
+        if (selected.length === 0) {
+          placeholder.style.display = '';
+        } else {
+          placeholder.style.display = 'none';
+          selected.forEach(function (val) {
+            var tag = document.createElement('span');
+            tag.className = 'multiselect-tag';
+            tag.textContent = val;
+            var btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'multiselect-tag-remove';
+            btn.setAttribute('aria-label', 'Remove ' + val);
+            btn.innerHTML = '&#10005;';
+            btn.addEventListener('click', function (e) {
+              e.stopPropagation();
+              checkboxes.forEach(function (cb) { if (cb.value === val) cb.checked = false; });
+              renderTags();
+            });
+            tag.appendChild(btn);
+            tagsContainer.appendChild(tag);
+          });
+        }
+      }
+
+      function toggleDropdown() {
+        var isOpen = wrapper.classList.toggle('multiselect--open');
+        trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      }
+
+      function closeDropdown() {
+        wrapper.classList.remove('multiselect--open');
+        trigger.setAttribute('aria-expanded', 'false');
+      }
+
+      trigger.addEventListener('click', function (e) {
+        e.stopPropagation();
+        toggleDropdown();
+      });
+
+      trigger.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleDropdown();
+        } else if (e.key === 'Escape') {
+          closeDropdown();
+        }
+      });
+
+      dropdown.addEventListener('click', function (e) { e.stopPropagation(); });
+      checkboxes.forEach(function (cb) { cb.addEventListener('change', renderTags); });
+
+      document.addEventListener('click', function () { closeDropdown(); });
+    })();
+
     // ---- Contact form → WhatsApp ----
     document.getElementById('contactForm').addEventListener('submit', function (e) {
       e.preventDefault();
       var name    = document.getElementById('cf-name').value.trim();
       var phone   = document.getElementById('cf-phone').value.trim();
-      var country = document.getElementById('cf-country').value || 'Not specified';
+
+      var countryCheckboxes = document.querySelectorAll('#cfCountryDropdown input[type="checkbox"]');
+      var selectedCountries = [];
+      countryCheckboxes.forEach(function (cb) { if (cb.checked) selectedCountries.push(cb.value); });
+      var country = selectedCountries.length > 0 ? selectedCountries.join(', ') : 'Not specified';
+
       var course  = document.getElementById('cf-course').value  || 'Not specified';
 
       if (!name || !phone) {
