@@ -241,10 +241,94 @@ img { display: block; max-width: 100%; }
   pointer-events: none;
 }
 
-.hero-content {
+.hero-inner {
   position: relative;
   z-index: 1;
-  max-width: 720px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.hero-content {
+  max-width: 600px;
+}
+
+/* ---------- Hero Carousel ---------- */
+.hero-carousel {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.35);
+  aspect-ratio: 4 / 3;
+}
+
+.hero-carousel-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-carousel-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.hero-carousel-slide--active {
+  opacity: 1;
+}
+
+.hero-carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-carousel-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 32px 20px 16px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 100%);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.02em;
+}
+
+.hero-carousel-dots {
+  position: absolute;
+  bottom: 52px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 2;
+}
+
+.hero-carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.3s, border-color 0.3s, transform 0.2s;
+}
+
+.hero-carousel-dot:hover {
+  border-color: var(--white);
+  transform: scale(1.2);
+}
+
+.hero-carousel-dot--active {
+  background: var(--gold);
+  border-color: var(--gold);
 }
 
 .hero-eyebrow {
@@ -1333,6 +1417,16 @@ img { display: block; max-width: 100%; }
     font-size: 1.25rem;
   }
 
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .hero-carousel {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
   .process-steps {
     flex-direction: column;
     align-items: center;
@@ -1452,5 +1546,9 @@ img { display: block; max-width: 100%; }
   .hero-bg-overlay::before,
   .hero-bg-overlay::after {
     animation: none;
+  }
+
+  .hero-carousel-slide {
+    transition: none;
   }
 }

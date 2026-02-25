@@ -143,21 +143,54 @@
   <!-- ===== HERO ===== -->
   <section class="hero" id="hero">
     <div class="hero-bg-overlay"></div>
-    <div class="container hero-content">
-      <p class="hero-eyebrow">Dreams to Destination</p>
-      <h1 class="hero-headline">Your Gateway To<br /><span class="highlight">Global Education</span></h1>
-      <p class="hero-subline">Turning Ambitions into Global Careers</p>
-      <p class="hero-body">We are a dynamic overseas education and career support platform dedicated to guiding students toward global opportunities.</p>
-      <a class="btn btn-whatsapp btn-lg" href="https://wa.me/919028390091?text=Hi%2C%20I%20need%20guidance%20about%20overseas%20education" target="_blank" rel="noopener">
-        <svg width="22" height="22" aria-hidden="true"><use href="#icon-whatsapp"/></svg>
-        Get Free Counselling
-      </a>
-      <div class="hero-trust">
-        <span class="hero-trust-item"><span class="hero-trust-check">✓</span> Free Counselling</span>
-        <span class="hero-trust-sep" aria-hidden="true">·</span>
-        <span class="hero-trust-item"><span class="hero-trust-check">✓</span> 1,000+ Universities</span>
-        <span class="hero-trust-sep" aria-hidden="true">·</span>
-        <span class="hero-trust-item"><span class="hero-trust-check">✓</span> Pune, India</span>
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Dreams to Destination</p>
+        <h1 class="hero-headline">Your Gateway To<br /><span class="highlight">Global Education</span></h1>
+        <p class="hero-subline">Turning Ambitions into Global Careers</p>
+        <p class="hero-body">We are a dynamic overseas education and career support platform dedicated to guiding students toward global opportunities.</p>
+        <a class="btn btn-whatsapp btn-lg" href="https://wa.me/919028390091?text=Hi%2C%20I%20need%20guidance%20about%20overseas%20education" target="_blank" rel="noopener">
+          <svg width="22" height="22" aria-hidden="true"><use href="#icon-whatsapp"/></svg>
+          Get Free Counselling
+        </a>
+        <div class="hero-trust">
+          <span class="hero-trust-item"><span class="hero-trust-check">✓</span> Free Counselling</span>
+          <span class="hero-trust-sep" aria-hidden="true">·</span>
+          <span class="hero-trust-item"><span class="hero-trust-check">✓</span> 1,000+ Universities</span>
+          <span class="hero-trust-sep" aria-hidden="true">·</span>
+          <span class="hero-trust-item"><span class="hero-trust-check">✓</span> Pune, India</span>
+        </div>
+      </div>
+      <div class="hero-carousel" aria-label="Campus life images">
+        <div class="hero-carousel-track" id="heroCarouselTrack">
+          <div class="hero-carousel-slide hero-carousel-slide--active">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&h=450&fit=crop&q=80" alt="Diverse group of international students studying together on campus" loading="eager" />
+            <div class="hero-carousel-caption">Students collaborating on campus</div>
+          </div>
+          <div class="hero-carousel-slide">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=450&fit=crop&q=80" alt="Indian and international students working together at a university" loading="lazy" />
+            <div class="hero-carousel-caption">Multicultural teamwork at university</div>
+          </div>
+          <div class="hero-carousel-slide">
+            <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=600&h=450&fit=crop&q=80" alt="Students from different countries celebrating together on campus" loading="lazy" />
+            <div class="hero-carousel-caption">Celebrating diversity on campus</div>
+          </div>
+          <div class="hero-carousel-slide">
+            <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=600&h=450&fit=crop&q=80" alt="International students at graduation ceremony" loading="lazy" />
+            <div class="hero-carousel-caption">Graduation — dreams fulfilled</div>
+          </div>
+          <div class="hero-carousel-slide">
+            <img src="https://images.unsplash.com/photo-1529390079861-591de354faf5?w=600&h=450&fit=crop&q=80" alt="Students walking together on an international university campus" loading="lazy" />
+            <div class="hero-carousel-caption">Life on an international campus</div>
+          </div>
+        </div>
+        <div class="hero-carousel-dots" id="heroCarouselDots">
+          <button class="hero-carousel-dot hero-carousel-dot--active" aria-label="Slide 1" data-slide="0"></button>
+          <button class="hero-carousel-dot" aria-label="Slide 2" data-slide="1"></button>
+          <button class="hero-carousel-dot" aria-label="Slide 3" data-slide="2"></button>
+          <button class="hero-carousel-dot" aria-label="Slide 4" data-slide="3"></button>
+          <button class="hero-carousel-dot" aria-label="Slide 5" data-slide="4"></button>
+        </div>
       </div>
     </div>
   </section>
@@ -809,6 +842,55 @@
       next.addEventListener('click', function () {
         track.scrollBy({ left: getCardWidth(), behavior: 'smooth' });
       });
+    })();
+
+    // ---- Hero image carousel ----
+    (function () {
+      var track = document.getElementById('heroCarouselTrack');
+      var dotsContainer = document.getElementById('heroCarouselDots');
+      if (!track || !dotsContainer) return;
+
+      var slides = track.querySelectorAll('.hero-carousel-slide');
+      var dots = dotsContainer.querySelectorAll('.hero-carousel-dot');
+      var current = 0;
+      var total = slides.length;
+      var interval = 4000;
+      var timer;
+
+      function goTo(index) {
+        slides[current].classList.remove('hero-carousel-slide--active');
+        dots[current].classList.remove('hero-carousel-dot--active');
+        current = (index + total) % total;
+        slides[current].classList.add('hero-carousel-slide--active');
+        dots[current].classList.add('hero-carousel-dot--active');
+      }
+
+      function startAuto() {
+        timer = setInterval(function () {
+          goTo(current + 1);
+        }, interval);
+      }
+
+      function resetAuto() {
+        clearInterval(timer);
+        startAuto();
+      }
+
+      dots.forEach(function (dot) {
+        dot.addEventListener('click', function () {
+          var idx = parseInt(dot.getAttribute('data-slide'), 10);
+          goTo(idx);
+          resetAuto();
+        });
+      });
+
+      var carousel = track.closest('.hero-carousel');
+      if (carousel) {
+        carousel.addEventListener('mouseenter', function () { clearInterval(timer); });
+        carousel.addEventListener('mouseleave', function () { startAuto(); });
+      }
+
+      startAuto();
     })();
 
     // ---- Scroll-triggered reveal animations ----
