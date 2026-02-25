@@ -44,6 +44,62 @@
     }
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is the initial counselling really free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, absolutely. Your first counselling session is completely free with no obligation. We assess your profile, discuss your goals, and give you an honest roadmap before you commit to anything."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does the entire process take from start to departure?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Typically 3–6 months depending on your destination and intake. We recommend starting at least 6–8 months before your desired intake for the best university options and scholarship opportunities."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you help with education loans and scholarships?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We assist with education loan applications through our banking partners and help identify scholarship opportunities that match your academic profile."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What exams do I need to take, and do you offer coaching?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Requirements vary by country and programme. Common exams include IELTS, TOEFL, GRE, and GMAT. We offer in-house coaching for all major standardised tests as well as language courses in German, French, and Japanese."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I study abroad on a budget?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Definitely. Countries like Germany offer low or zero tuition at public universities. We also help identify affordable options in Canada, Ireland, and New Zealand."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where is your office located?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We are located at 412A, Solitaire Business Hub, Balewadi Highstreet, Baner, Pune 411045, India."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -68,6 +124,8 @@
         <a href="#services">Services</a>
         <a href="#countries">Countries</a>
         <a href="#courses">Courses</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#faq">FAQ</a>
         <a href="#enquire">Contact</a>
       </nav>
       <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
@@ -104,12 +162,36 @@
     </div>
   </section>
 
+  <!-- ===== STATS BAR ===== -->
+  <section class="section section-stats" id="stats">
+    <div class="container">
+      <div class="stats-grid reveal-stagger">
+        <div class="stat-item">
+          <span class="stat-number" data-target="1000" data-suffix="+">0</span>
+          <span class="stat-label">Partner Universities</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="8" data-suffix="+">0</span>
+          <span class="stat-label">Countries Covered</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="98" data-suffix="%">0</span>
+          <span class="stat-label">Visa Success Rate</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="500" data-suffix="+">0</span>
+          <span class="stat-label">Students Guided</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== COUNTRIES ===== -->
   <section class="section section-countries" id="countries">
     <div class="container">
-      <h2 class="section-title">Study Anywhere in the World</h2>
-      <p class="section-sub">We help students gain admissions across top destinations globally</p>
-      <div class="countries-grid">
+      <h2 class="section-title reveal">Study Anywhere in the World</h2>
+      <p class="section-sub reveal">We help students gain admissions across top destinations globally</p>
+      <div class="countries-grid reveal-stagger">
         <div class="country-chip">🇺🇸 USA</div>
         <div class="country-chip">🇬🇧 UK</div>
         <div class="country-chip">🇨🇦 Canada</div>
@@ -123,12 +205,49 @@
     </div>
   </section>
 
+  <!-- ===== UNIVERSITY TICKER ===== -->
+  <div class="ticker-section">
+    <div class="container">
+      <p class="ticker-label">Trusted by students admitted to leading universities worldwide</p>
+    </div>
+    <div class="ticker-track" aria-hidden="true">
+      <div class="ticker-slide">
+        <span class="ticker-item">University of Toronto</span>
+        <span class="ticker-item">TU Munich</span>
+        <span class="ticker-item">University of Melbourne</span>
+        <span class="ticker-item">University of Leeds</span>
+        <span class="ticker-item">University College Dublin</span>
+        <span class="ticker-item">University of Auckland</span>
+        <span class="ticker-item">University of British Columbia</span>
+        <span class="ticker-item">RWTH Aachen</span>
+        <span class="ticker-item">University of Sydney</span>
+        <span class="ticker-item">King's College London</span>
+        <span class="ticker-item">University of Waterloo</span>
+        <span class="ticker-item">ETH Zurich</span>
+      </div>
+      <div class="ticker-slide">
+        <span class="ticker-item">University of Toronto</span>
+        <span class="ticker-item">TU Munich</span>
+        <span class="ticker-item">University of Melbourne</span>
+        <span class="ticker-item">University of Leeds</span>
+        <span class="ticker-item">University College Dublin</span>
+        <span class="ticker-item">University of Auckland</span>
+        <span class="ticker-item">University of British Columbia</span>
+        <span class="ticker-item">RWTH Aachen</span>
+        <span class="ticker-item">University of Sydney</span>
+        <span class="ticker-item">King's College London</span>
+        <span class="ticker-item">University of Waterloo</span>
+        <span class="ticker-item">ETH Zurich</span>
+      </div>
+    </div>
+  </div>
+
   <!-- ===== SERVICES ===== -->
   <section class="section section-services" id="services">
     <div class="container">
-      <h2 class="section-title">What We Offer</h2>
-      <p class="section-sub">Everything you need — all under one umbrella</p>
-      <div class="services-grid">
+      <h2 class="section-title reveal">What We Offer</h2>
+      <p class="section-sub reveal">Everything you need — all under one umbrella</p>
+      <div class="services-grid reveal-stagger">
 
         <div class="service-card">
           <div class="service-icon">🎓</div>
@@ -190,12 +309,51 @@
     </div>
   </section>
 
+  <!-- ===== HOW IT WORKS ===== -->
+  <section class="section section-process" id="process">
+    <div class="container">
+      <h2 class="section-title reveal">How It Works</h2>
+      <p class="section-sub reveal">Your journey from first call to campus — in 5 clear steps</p>
+      <div class="process-steps reveal-stagger">
+        <div class="process-step">
+          <div class="process-step-num">1</div>
+          <h4>Free Counselling</h4>
+          <p>Talk to our experts about your goals, budget, and preferred destinations.</p>
+        </div>
+        <div class="process-connector" aria-hidden="true"></div>
+        <div class="process-step">
+          <div class="process-step-num">2</div>
+          <h4>University Selection</h4>
+          <p>We shortlist the best-fit universities based on your profile and aspirations.</p>
+        </div>
+        <div class="process-connector" aria-hidden="true"></div>
+        <div class="process-step">
+          <div class="process-step-num">3</div>
+          <h4>Application &amp; Docs</h4>
+          <p>We handle SOP, LOR, applications, and document preparation end to end.</p>
+        </div>
+        <div class="process-connector" aria-hidden="true"></div>
+        <div class="process-step">
+          <div class="process-step-num">4</div>
+          <h4>Visa &amp; Loan Support</h4>
+          <p>From financial planning to visa filing — we guide you through every form.</p>
+        </div>
+        <div class="process-connector" aria-hidden="true"></div>
+        <div class="process-step">
+          <div class="process-step-num">5</div>
+          <h4>Pre-Departure &amp; Arrival</h4>
+          <p>Accommodation, travel, and settling-in support so you land with confidence.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== COURSES ===== -->
   <section class="section section-courses" id="courses">
     <div class="container">
-      <h2 class="section-title">Courses We Support</h2>
-      <p class="section-sub">From undergraduate to postgraduate and professional programmes</p>
-      <div class="courses-grid">
+      <h2 class="section-title reveal">Courses We Support</h2>
+      <p class="section-sub reveal">From undergraduate to postgraduate and professional programmes</p>
+      <div class="courses-grid reveal-stagger">
         <div class="course-pill">Bachelor's</div>
         <div class="course-pill">Master's</div>
         <div class="course-pill">Engineering</div>
@@ -212,8 +370,8 @@
   <!-- ===== WHY CHOOSE US ===== -->
   <section class="section section-why" id="why">
     <div class="container">
-      <h2 class="section-title">Why Choose Scintilla?</h2>
-      <div class="why-grid">
+      <h2 class="section-title reveal">Why Choose Scintilla?</h2>
+      <div class="why-grid reveal-stagger">
         <div class="why-card">
           <div class="why-icon">👨‍💼</div>
           <h4>Experienced Counsellors</h4>
@@ -248,6 +406,53 @@
     </div>
   </section>
 
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="section section-testimonials" id="testimonials">
+    <div class="container">
+      <h2 class="section-title reveal">What Our Students Say</h2>
+      <p class="section-sub reveal">Hear from students who started their global journey with Scintilla</p>
+      <div class="testimonials-track" id="testimonialsTrack">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial-text">"Scintilla made my dream of studying in Germany a reality. From university selection to visa, they handled everything seamlessly."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">PS</div>
+            <div>
+              <p class="testimonial-name">Priya Sharma</p>
+              <p class="testimonial-detail">MS in Data Science · TU Munich, Germany</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial-text">"The IELTS coaching and counselling were top-notch. I scored 7.5 and got into my top-choice university in Canada within 3 months."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">RK</div>
+            <div>
+              <p class="testimonial-name">Rahul Kulkarni</p>
+              <p class="testimonial-detail">MBA · University of Toronto, Canada</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial-text">"I was confused about which country to choose. Scintilla's counsellors gave me personalised advice and I'm now pursuing my Masters in the UK!"</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">AM</div>
+            <div>
+              <p class="testimonial-name">Ananya Mehta</p>
+              <p class="testimonial-detail">MSc Biotechnology · University of Leeds, UK</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonials-nav">
+        <button class="testimonial-btn" id="testimonialPrev" aria-label="Previous testimonial">&#8592;</button>
+        <button class="testimonial-btn" id="testimonialNext" aria-label="Next testimonial">&#8594;</button>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== CTA BANNER ===== -->
   <section class="section section-cta">
     <div class="container cta-inner">
@@ -257,6 +462,52 @@
         <svg width="24" height="24" aria-hidden="true"><use href="#icon-whatsapp"/></svg>
         Hi, I need guidance about overseas education
       </a>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="section section-faq" id="faq">
+    <div class="container">
+      <h2 class="section-title reveal">Frequently Asked Questions</h2>
+      <p class="section-sub reveal">Quick answers to common queries about studying abroad</p>
+      <div class="faq-list reveal">
+        <details class="faq-item">
+          <summary class="faq-question">Is the initial counselling really free?</summary>
+          <div class="faq-answer">
+            <p>Yes, absolutely. Your first counselling session is completely free with no obligation. We assess your profile, discuss your goals, and give you an honest roadmap before you commit to anything.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">How long does the entire process take from start to departure?</summary>
+          <div class="faq-answer">
+            <p>Typically 3–6 months depending on your destination and intake. We recommend starting at least 6–8 months before your desired intake for the best university options and scholarship opportunities.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">Do you help with education loans and scholarships?</summary>
+          <div class="faq-answer">
+            <p>Yes. We assist with education loan applications through our banking partners and help identify scholarship opportunities that match your academic profile. Our financial planning support is part of our end-to-end service.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">What exams do I need to take, and do you offer coaching?</summary>
+          <div class="faq-answer">
+            <p>Requirements vary by country and programme. Common exams include IELTS, TOEFL, GRE, and GMAT. We offer in-house coaching for all major standardised tests as well as language courses in German, French, and Japanese.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">Can I study abroad on a budget?</summary>
+          <div class="faq-answer">
+            <p>Definitely. Countries like Germany offer low or zero tuition at public universities. We also help identify affordable options in Canada, Ireland, and New Zealand, plus assist with scholarships and part-time work opportunities.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">Where is your office located?</summary>
+          <div class="faq-answer">
+            <p>We are located at 412A, Solitaire Business Hub, Balewadi Highstreet, Baner, Pune 411045, India. Walk-ins are welcome, or you can reach us via WhatsApp at +91-9028390091.</p>
+          </div>
+        </details>
+      </div>
     </div>
   </section>
 
@@ -384,6 +635,8 @@
           <li><a href="#services">Services</a></li>
           <li><a href="#countries">Countries</a></li>
           <li><a href="#courses">Courses</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#faq">FAQ</a></li>
           <li><a href="#why">Why Scintilla</a></li>
           <li><a href="#enquire">Enquire Now</a></li>
         </ul>
@@ -494,6 +747,91 @@
                 '\nCourse Level: ' + course;
       window.open('https://wa.me/919028390091?text=' + encodeURIComponent(msg), '_blank');
     });
+
+    // ---- Animated number counters ----
+    (function () {
+      var counters = document.querySelectorAll('.stat-number');
+      if (!counters.length) return;
+
+      var animated = false;
+
+      function animateCounters() {
+        if (animated) return;
+        animated = true;
+        counters.forEach(function (el) {
+          var target = parseInt(el.getAttribute('data-target'), 10);
+          var suffix = el.getAttribute('data-suffix') || '';
+          var duration = 2000;
+          var startTime = null;
+
+          function step(timestamp) {
+            if (!startTime) startTime = timestamp;
+            var progress = Math.min((timestamp - startTime) / duration, 1);
+            var eased = 1 - Math.pow(1 - progress, 3);
+            var current = Math.floor(eased * target);
+            el.textContent = current.toLocaleString() + suffix;
+            if (progress < 1) {
+              requestAnimationFrame(step);
+            } else {
+              el.textContent = target.toLocaleString() + suffix;
+            }
+          }
+          requestAnimationFrame(step);
+        });
+      }
+
+      var statsSection = document.querySelector('.section-stats');
+      var observer = new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) {
+          animateCounters();
+          observer.disconnect();
+        }
+      }, { threshold: 0.3 });
+      observer.observe(statsSection);
+    })();
+
+    // ---- Testimonial carousel navigation ----
+    (function () {
+      var track = document.getElementById('testimonialsTrack');
+      var prev = document.getElementById('testimonialPrev');
+      var next = document.getElementById('testimonialNext');
+      if (!track || !prev || !next) return;
+
+      function getCardWidth() {
+        var card = track.querySelector('.testimonial-card');
+        if (!card) return 300;
+        return card.offsetWidth + 24;
+      }
+
+      prev.addEventListener('click', function () {
+        track.scrollBy({ left: -getCardWidth(), behavior: 'smooth' });
+      });
+      next.addEventListener('click', function () {
+        track.scrollBy({ left: getCardWidth(), behavior: 'smooth' });
+      });
+    })();
+
+    // ---- Scroll-triggered reveal animations ----
+    (function () {
+      var reveals = document.querySelectorAll('.reveal, .reveal-stagger');
+      if (!reveals.length) return;
+
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var cls = entry.target.classList.contains('reveal-stagger')
+              ? 'reveal-stagger--visible'
+              : 'reveal--visible';
+            entry.target.classList.add(cls);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      reveals.forEach(function (el) { observer.observe(el); });
+    })();
   </script>
 </body>
 </html>
